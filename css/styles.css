@@ -79,13 +79,13 @@ hr {
 }
 
 .half-img-left {
-  width: 40%;
+  width: 25%;
   float: left;
   margin-right: 30px;
 }
 
 .half-img-right {
-  width: 40%;
+  width: 25%;
   float: right;
   margin-right: 30px;
 }
