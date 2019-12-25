@@ -1,0 +1,101 @@
+/*********************TAG SELECTORS********************/
+
+body {
+ background: #fff3af;
+ text-align: center;
+ font-size: 1.20em;
+ margin: 0
+}
+
+h1 {
+  color: #381460;
+  font-family: 'Merriweather', serif;
+  font-size: 3.8rem;
+}
+
+h2 {
+  color: #381460;
+  font-family: 'Sacramento', cursive;
+  font-size: 2.7rem;
+  margin: 0 auto;
+}
+
+h3 {
+  color: #381460;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+p {
+  color: #381460
+}
+
+hr {
+  border: dotted grey 6px;
+  border-bottom: none;
+  width: 5%
+}
+
+/********************CLASS SELECTORS*******************/
+.block {
+  margin-top: 0px;
+  padding: 20px;
+}
+
+.bottom-container {
+  background: #381460;
+  padding: 15px;
+}
+
+.round {
+  border-radius: 100%;
+}
+
+.icon {
+  width: 150px;
+}
+
+.hobbies-img {
+  width: 300px;
+}
+
+.intro {
+  width: 60%;
+  margin: auto;
+}
+
+.intro-message {
+  text-align: justify;
+}
+
+.header {
+  text-align: right;
+  background-image: url("header.jpg");
+  border-color: #fff3af;
+  padding: 8%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.half-img-left {
+  width: 25%;
+  float: left;
+  margin-right: 30px;
+}
+
+.half-img-right {
+  width: 25%;
+  float: right;
+  margin-right: 30px;
+}
+
+.half {
+  width: 50%;
+  text-align: left;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-img {
+  width: 200px;
+}
