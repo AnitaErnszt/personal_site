@@ -61,7 +61,7 @@ hr {
 }
 
 .intro {
-  width: 60%;
+  width: 70%;
   margin: auto;
 }
 
@@ -79,19 +79,19 @@ hr {
 }
 
 .half-img-left {
-  width: 25%;
+  width: 40%;
   float: left;
   margin-right: 30px;
 }
 
 .half-img-right {
-  width: 25%;
+  width: 40%;
   float: right;
   margin-right: 30px;
 }
 
 .half {
-  width: 50%;
+  width: 70%;
   text-align: left;
   margin: 0 auto;
   padding: 20px;
