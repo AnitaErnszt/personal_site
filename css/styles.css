@@ -1,34 +1,27 @@
 /*********************TAG SELECTORS********************/
 
 body {
- background: #fff3af;
+ background: #F0F8FF;
  text-align: center;
  font-size: 1.20em;
  margin: 0
 }
 
 h1 {
-  color: #381460;
+  color: #fff;
   font-family: 'Merriweather', serif;
   font-size: 3.8rem;
 }
 
 h2 {
-  color: #381460;
   font-family: 'Sacramento', cursive;
   font-size: 2.7rem;
   margin: 0 auto;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 
 h3 {
-  color: #381460;
   font-family: 'Montserrat', sans-serif;
-}
-
-
-p {
-  color: #381460
 }
 
 hr {
@@ -45,6 +38,14 @@ hr {
 
 .bottom-container {
   padding: 15px;
+}
+
+.bottom-2 {
+  padding-bottom: 2%
+}
+
+.about-me {
+  padding-bottom: 0;
 }
 
 .round {
@@ -64,22 +65,56 @@ hr {
   margin-bottom: 10%
 }
 
+.hobbies {
+  padding: 2% 10%;
+}
 .intro {
   width: 70%;
   margin: auto;
 }
 
 .intro-message {
-  text-align: justify;
+  text-align: center;
 }
 
 .header {
   text-align: right;
-  background-image: url("header.jpg");
-  border-color: #fff3af;
+  background-image: url("dandelion.jpg");
+  border-color: #fff;
+  color: #fff;
   padding: 8%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (max-width: 1080px) {
+
+  .header {
+    padding: 5%
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .header {
+    padding: 2%
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 .half-img-left {
