@@ -1,6 +1,13 @@
 var yourLevel = -1;
 var gamePattern = "";
 
+window.onload = function(event){
+  var windowWidth = event.currentTarget.innerWidth;
+  if (windowWidth < 1121){
+    alert("This website is not responsive yet. Open on desktop to play with the game.");;
+  };
+};
+
 $("body").keypress(function(event){
   if (yourLevel === -1){
     yourLevel = 0;

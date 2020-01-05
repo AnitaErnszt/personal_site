@@ -56,6 +56,10 @@ hr {
   width: 150px;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .footer-link {
   padding: 3%;
 }
@@ -93,7 +97,7 @@ hr {
 .half-img-right {
   width: 25%;
   float: right;
-  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .half {
@@ -109,6 +113,14 @@ hr {
 
 .nav-item {
   padding: 0 18px;
+}
+
+.fa-2x {
+  color: grey;
+}
+
+.fa-2x:hover {
+  color: #838383;
 }
 
 @media (max-width: 1080px) {
@@ -138,5 +150,9 @@ hr {
 
   h2 {
     font-size: 2rem;
+  }
+
+  .d-sm-none {
+    display: none;
   }
 }
