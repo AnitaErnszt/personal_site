@@ -19,7 +19,7 @@ app.post("/", function(req, res){
     , body: body
         }
     , function(error, response, body){
-        console.log(response);
+        console.log(response.body);
       });
 });
 
