@@ -1,10 +1,9 @@
-var yourLevel = 0;
-var yourscore = 0;
+var yourLevel = -1;
 var gamePattern = "";
 
 $("body").keypress(function(event){
-  if (yourLevel === 0){
-    yourLevel = 1;
+  if (yourLevel === -1){
+    yourLevel = 0;
     $("#level-title").text("Level " + yourLevel);
     nextSequence();
   }
@@ -21,7 +20,13 @@ function nextSequence () {
    var randomChosenColour = buttonColours[randomSelector];
    gamePattern = randomChosenColour;
    var idTag = "#" + randomChosenColour;
-   $(idTag).fadeIn(100).fadeOut(100).fadeIn(100);
+   if (yourLevel < 10){
+     $(idTag).fadeIn(100).fadeOut(100).fadeIn(100);
+   } else if (yourLevel < 15){
+     $(idTag).fadeIn(50).fadeOut(50).fadeIn(50);
+   } else {
+     $(idTag).fadeIn(25).fadeOut(25).fadeIn(25);
+   };
    playSound(randomChosenColour);
 }
 
@@ -33,7 +38,10 @@ $(".btn").click(function(event){
     setTimeout(function(){$(pressedButtonId).removeClass("pressed")}, 50);
     console.log(pressedButtonId);
     if (gamePattern === pressedButtonColour){
-      yourscore += 1;
-      $("#level-title").text("Level " + yourLevel + " (" + yourscore + " win)");
+      yourLevel += 1;
+      $("#level-title").text("Level " + yourLevel);
+      nextSequence();
+    } else {
+      $("#level-title").text("GAME OVER");
     }
   });
