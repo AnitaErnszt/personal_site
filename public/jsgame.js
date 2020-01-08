@@ -1,5 +1,6 @@
 var yourLevel = -1;
 var gamePattern = "";
+$('#getPlayerName').modal({ show: false})
 
 window.onload = function(event){
   var windowWidth = event.currentTarget.innerWidth;
@@ -21,6 +22,7 @@ function playSound(colour){
   audio.play();
 }
 
+
 function nextSequence () {
    var buttonColours = ["red", "green", "yellow", "blue"];
    var randomSelector = Math.floor(Math.random()*4);
@@ -37,7 +39,7 @@ function nextSequence () {
    playSound(randomChosenColour);
 }
 
-$(".btn").click(function(event){
+$(".game-btn").click(function(event){
     var pressedButtonColour = event.target.id;
     var pressedButtonId = "#" + pressedButtonColour;
     playSound(pressedButtonColour);
@@ -50,5 +52,6 @@ $(".btn").click(function(event){
       nextSequence();
     } else {
       $("#level-title").text("GAME OVER");
+      $('#getPlayerName').modal('show');
     }
   });
