@@ -30,11 +30,11 @@ app.post("/", function(req, res){
       });
 });
 
-app.get("/test", function(req, res){
+app.get("/jsgame", function(req, res){
   res.sendFile(__dirname + "/jsgame.html")
 });
 
-app.post("/test", function(req, res){
+app.post("/jsgame", function(req, res){
   var body = JSON.stringify(req.body);
   console.log("submit player data")
   request(
