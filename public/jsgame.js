@@ -56,14 +56,15 @@ $(".game-btn").click(function(event){
     } else {
       $("#level-title").text("GAME OVER");
       $("#getPlayerName").modal("show");
-      var player = $("#playerNameId");
-      console.log(player);
-      $("#submitGameData").click(function(event){
-      const Url="https://tqs4p71lt4.execute-api.eu-west-1.amazonaws.com/dev/game/addgame";
-      const data=JSON.stringify({player_name: "Anonymous"});
-      $.post(Url,data,function(data, status){
-        console.log("Test POST")
-      });
+
+      $(".game-close").click(function(event){
+        var player = $("#playerNameId").val();
+        const Url="https://tqs4p71lt4.execute-api.eu-west-1.amazonaws.com/dev/game/addgame";
+        const data=JSON.stringify({player_name: player, game_level: yourLevel});
+        console.log(data);
+        $.post(Url,data,function(data, status){
+          console.log("Test POST")
+        });
     });
     }
   });
