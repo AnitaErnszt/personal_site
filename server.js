@@ -5,6 +5,7 @@ const request = require("request")
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/index.html")
@@ -53,7 +54,7 @@ app.post("/jsgame", function(req, res){
 });
 
 app.get("/register", function(req, res){
-  res.sendFile(__dirname + "/register.html")
+  res.render("register");
 });
 
 app.post("/register", function(req, res){
