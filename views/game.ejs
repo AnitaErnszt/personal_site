@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include("partials/header") -%>
 
-<head>
-  <meta charset="utf-8">
-  <title>JavaScript game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/jsgame.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-</head>
-
-<body>
-
+<div class="content">
   <h1 id="level-title">Press A Key to Start</h1>
   <div class="container">
     <div lass="row">
@@ -97,10 +86,8 @@
   </div>
 
 </div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="jsgame.js" charset="utf-8"></script>
-</body>
+<script src="game.js" charset="utf-8"></script>
 
-</html>
+<%- include("partials/footer") -%>

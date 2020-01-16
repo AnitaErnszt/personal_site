@@ -8,7 +8,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
-  res.sendFile(__dirname + "/index.html")
+  res.render("home");
 });
 
 app.post("/", function(req, res){
@@ -24,18 +24,42 @@ app.post("/", function(req, res){
         } else {
           var apiResponse = JSON.parse(response.body)
           if (apiResponse.status === "success"){
-          res.send(apiResponse.data.user);
+          res.redirect("/inprogress");
         } else {
-          res.send(apiResponse.error);
+          res.redirect("/inprogress");
         }}
       });
 });
 
-app.get("/jsgame", function(req, res){
-  res.sendFile(__dirname + "/jsgame.html")
+app.get("/about", function(req, res){
+  res.render("about");
 });
 
-app.post("/jsgame", function(req, res){
+app.get("/cv", function(req, res){
+  res.render("inprogress");
+});
+
+app.get("/hobbies", function(req, res){
+  res.render("hobbies");
+});
+
+app.get("/contact", function(req, res){
+  res.render("inprogress");
+});
+
+app.get("/inprogress", function(req, res){
+  res.render("inprogress");
+});
+
+app.get("/games", function(req, res){
+  res.sendFile(__dirname + "/public/jsgame.html")
+});
+
+// app.get("/game", function(req, res){
+//   res.render("game");
+// });
+
+app.post("/games", function(req, res){
   var body = JSON.stringify(req.body);
   console.log("submit player data")
   request(
@@ -70,9 +94,9 @@ app.post("/register", function(req, res){
         } else {
           var apiResponse = JSON.parse(response.body)
           if (apiResponse.status === "success"){
-          res.send(apiResponse.data.user);
+          res.redirect("/inprogress");
         } else {
-          res.send(apiResponse);
+          res.redirect("/inprogress");
         }}
       });
 });
