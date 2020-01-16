@@ -101,6 +101,6 @@ app.post("/register", function(req, res){
       });
 });
 
-app.listen(process.env.PORT || 8000, function(){
-  console.log("server started on port 8000");
+app.listen(80, function(){
+  console.log("server started on port 80");
 });
