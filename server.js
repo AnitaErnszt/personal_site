@@ -44,22 +44,35 @@ app.get("/hobbies", function(req, res){
 });
 
 app.get("/contact", function(req, res){
-  res.render("inprogress");
+  res.render("contact");
+});
+
+app.post("/contact", function(req, res){
+  var body = JSON.stringify(req.body);
+  console.log(body);
+  request(
+    { method: "POST"
+    , uri: "https://tqs4p71lt4.execute-api.eu-west-1.amazonaws.com/dev/contact-email"
+    , body: body
+        }
+    , function(error, response, body){
+        res.render("other", {"title": "Success!", "message": "Your message has been sent! I aim to get back to you within 24 hours."})
+      });
 });
 
 app.get("/inprogress", function(req, res){
   res.render("inprogress");
 });
 
-app.get("/games", function(req, res){
-  res.sendFile(__dirname + "/public/jsgame.html")
+app.get("/game", function(req, res){
+  res.render("game");
 });
 
-// app.get("/game", function(req, res){
-//   res.render("game");
-// });
+app.get("/code", function(req, res){
+  res.render("inprogress");
+});
 
-app.post("/games", function(req, res){
+app.post("/game", function(req, res){
   var body = JSON.stringify(req.body);
   console.log("submit player data")
   request(
@@ -101,6 +114,6 @@ app.post("/register", function(req, res){
       });
 });
 
-app.listen(80, function(){
-  console.log("server started on port 80");
+app.listen(3000, function(){
+  console.log("server started on port 3000");
 });
