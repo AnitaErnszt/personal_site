@@ -1,0 +1,96 @@
+<%- include("partials/header") -%>
+
+<h1>Email me API</h1>
+
+<h3 class="code-title-top">Lambda</h3>
+<div class="card">
+<pre><code class="language-python">
+import json
+import boto3
+from utils import api_respond
+
+def lambda_handler(event, context):
+  email = json.loads(event["body"])
+  print(email)
+  ses = boto3.client("ses")
+
+  email_to_me = '''<p>You have received the following email on your website:</p>
+                <p>Sender: ''' + email["sender"] + ''',</p>
+                <p>Subject: ''' + email["subject"] + ''',</p>
+                <p>Message: ''' + email["message"] </p>
+
+  response = ses.send_email(
+    Source="mosolyognijo@gmail.com",
+      Destination={
+        "ToAddresses": [
+          "anita.ernszt@gmail.com",
+        ]
+      },
+      Message={
+        "Subject": {
+          "Data": email["subject"]
+        },
+        "Body": {
+          "Html": {
+            "Data": email_to_me
+          }
+        }
+      },
+      SourceArn="arn:aws:ses:eu-west-1:************:identity/mosolyognijo@gmail.com"
+      )
+
+return api_respond()
+</code></pre>
+</div>
+
+<h3  class="code-title">Cloudformation-schema</h3>
+<div class="card">
+<pre><code class="language-yaml">
+/contact-email:
+  post:
+    tags:
+        - Contact
+      x-amazon-apigateway-integration:
+        uri:
+          "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactEmailLambda.Arn}/invocations"
+        passthroughBehaviour: when_no_match
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
+      summary: "Send me the message and confirms sent to the sender"
+      operationId: LoginEndpoint </code></pre>
+</div>
+
+<h3 class="code-title">API schema</h3>
+<div class="card">
+<pre><code class="language-yaml">
+###########################
+# Contact-me Email Lambda #
+###########################
+ContactEmailLambda:
+  Type: AWS::Serverless::Function
+  Properties:
+    CodeUri: ../src/contact-me/
+    FunctionName:
+      Fn::Sub: mysite-contact-me-email
+    Handler: contact.lambda_handler
+    Layers:
+      - Ref: BaseDependencyLayer
+    Policies:
+      - Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - SES:SendEmail
+            Resource: "*"
+ContactEmailPermission:
+  Type: AWS::Lambda::Permission
+  Properties:
+    Action: lambda:InvokeFunction
+    FunctionName:
+      Ref: ContactEmailLambda
+    Principal: apigateway.amazonaws.com</code></pre>
+</div>
+
+
+<%- include("partials/footer") -%>

@@ -64,12 +64,16 @@ app.get("/inprogress", function(req, res){
   res.render("inprogress");
 });
 
-app.get("/game", function(req, res){
-  res.render("game");
+app.get("/snippets", function(req, res){
+  res.render("snippets");
 });
 
-app.get("/code", function(req, res){
-  res.render("inprogress");
+app.get("/snippets/email", function(req, res){
+  res.render("email");
+});
+
+app.get("/game", function(req, res){
+  res.render("game");
 });
 
 app.post("/game", function(req, res){
